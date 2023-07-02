@@ -1,5 +1,5 @@
 body {
-  /* font-family: Monaco, monospace; */
+  font-family: Monaco, monospace;
   background-color: #f2f2f2;
   height: 100vh;
 }
@@ -14,7 +14,6 @@ a {
 h1 {
   font-size: 35px;
   font-weight: bold;
-  color:black ;
   padding: 1%;
   text-align: center;
   /* text-shadow: 2px 2px #f2f2f2; */
@@ -22,7 +21,8 @@ h1 {
   text-align: center;
   /* margin-top: 50px; */
   margin-bottom: 50px;
-  background-color: #1273c4 ;
+  background-color:#1273c4;
+  color:white;
 }
 
 h2 {
@@ -92,6 +92,7 @@ label {
 }
 
 input {
+  font-family: Monaco, monospace;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -128,7 +129,9 @@ button#add-car-button {
 }
 
 footer{
-  background-color: #1273c4;
-  margin-bottom: 0px;
+  background-color:#1273c4;
   padding: 1%;
+  color:white;
+
+  /* width: 100vw; */
 }

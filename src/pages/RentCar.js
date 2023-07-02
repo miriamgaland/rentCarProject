@@ -70,15 +70,15 @@ export default function RentCar({ car, account }) {
       <img src={car.carimage} />
       {/* <br /> */}
       <span>{car.manufacturer}</span>
-      <br />
+      {/* <br /> */}
       <span>{car.model}</span>
-      <br />
+      {/* <br /> */}
       <span>{car.year}</span>
-      <br />
+      {/* <br /> */}
       <span>{car.price}</span>
-      <br />
+      {/* <br /> */}
       <span>{car.location}</span>
-      <br />
+      {/* <br /> */}
       <Select options={options} onChange={(e) => setHour(e.value)}>
         {" "}
         Select Hour{" "}

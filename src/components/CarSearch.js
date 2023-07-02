@@ -18,19 +18,19 @@ function CarSearch(props) {
     <div>
       {/* <h2> Car Search </h2>  */}
       <form id="search-form" onSubmit={handleSearch}>
-        <div style={{flexDirection:"row"}}>
-          <label>
+        <div style={{display:"flex",flexDirection:"row"}}>
+          <div className="input">
             <span className="span"> Location:</span>
             <input type="text" value={location} onChange={(event) => setLocation(event.target.value)} />
-          </label>
-          <label>
+          </div>
+          <div className="input">
             <span className="span">Min Price:</span>
             <input type="number" value={minPrice} onChange={(event) => setMinPrice(event.target.value)} />
-          </label>
-          <label>
+          </div>
+          <div className="input">
             <span className="span">Max Price:</span>
             <input type="number" value={maxPrice} onChange={(event) => setMaxPrice(event.target.value)} />
-          </label>
+          </div>
         </div>
         <div>
           <button type="submit">Search</button>
