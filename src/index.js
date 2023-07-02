@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
     <BrowserRouter>
-    <header><img src={"./image.jpg"}/></header>
+    <header><img id="head-img" src={"./../image.jpg"}/></header>
       <Routes>
         <Route exact path="/" element={<App />} />
           {/* <Route index element={<App />} /> */}

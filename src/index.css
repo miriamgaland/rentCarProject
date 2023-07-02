@@ -7,6 +7,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#head-img {
+  height: 27.5vh;
+  width: auto;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  opacity: 0.2;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

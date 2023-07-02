@@ -12,6 +12,7 @@ a {
 }
 
 h1 {
+  height: 27.5vh;
   font-size: 35px;
   font-weight: bold;
   padding: 1%;
@@ -20,9 +21,9 @@ h1 {
   letter-spacing: 2px;
   text-align: center;
   /* margin-top: 50px; */
-  margin-bottom: 50px;
-  background-color:#1273c4;
-  color:white;
+  /* margin-bottom: 50px; */
+  /* background-color:black; */
+  color:#ac5c2b;
 }
 
 h2 {
@@ -42,7 +43,7 @@ form {
 }
 
 button {
-  background-color: #1273c4;
+  background-color: #ac5c2b;
   color: #fff;
   padding: 8px 16px;
   border: none;
@@ -78,7 +79,7 @@ th {
 } */
 
 button:hover {
-  background-color: #074e88;
+  background-color: #703d1c;
   font-size: larger;
 }
 
@@ -110,8 +111,14 @@ input:focus {
 nav {
   display: flex;
   justify-content: flex-end;
-  margin-right: 2px;
+  margin-right: 20px;
   margin-left: 578px;
+}
+
+#search-img{
+  height: 30px;
+  width: auto;
+  padding: 0px;
 }
 
 table img {
@@ -129,7 +136,7 @@ button#add-car-button {
 }
 
 footer{
-  background-color:#1273c4;
+  background-color:black;
   padding: 1%;
   color:white;
 
