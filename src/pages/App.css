@@ -55,6 +55,7 @@ button {
   font-family: Monaco, monospace;
   font-size: large;
   margin-left: 1%;
+  height: 40px;
 }
 
 table {
@@ -116,9 +117,11 @@ nav {
 }
 
 #search-img{
-  height: 30px;
+  height: 40px;
+  border-radius: 4px;
   width: auto;
   padding: 0px;
+  margin: 0px;
 }
 
 table img {
@@ -139,6 +142,4 @@ footer{
   background-color:black;
   padding: 1%;
   color:white;
-
-  /* width: 100vw; */
 }

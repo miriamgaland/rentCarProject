@@ -1,7 +1,7 @@
 h2 {
     font-size: 40px;
     font-weight: bold;
-    color: #1273c4;
+    color: #ac5c2b;
     margin-bottom: 20px;
     text-align: center;
   }
@@ -32,8 +32,8 @@ h2 {
   
   input:focus {
     outline: none;
-    border-color: #1273c4;
-    box-shadow: 0 0 4px #1273c4;
+    border-color: #ac5c2b;
+    box-shadow: 0 0 4px #ac5c2b;
     /* font-family: Monaco, monospace; */
     text-align: center;
   }

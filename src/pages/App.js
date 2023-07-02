@@ -70,7 +70,8 @@ function App() {
       <h1> Car Sharing </h1>
       <UserProfile user={currentUser} />
       <nav className="">
-        <button onClick={()=>setShowSearch(false)}><img id="search-img" src={"./../search.jpg"}/></button>
+      <img id="search-img" src={"./../search.jpg"} onClick={()=>setShowSearch(false)}></img>
+        {/* <button onClick={()=>setShowSearch(false)}><img id="search-img" src={"./../search.jpg"}/></button> */}
         {!currentUser ? (
           <button onClick={() => setPageName("LOGIN")}>Log In</button>
         ) : (

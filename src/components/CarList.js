@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CarList({data, bookNowHandler, setCarToRent}) {
 
  return (
-   <div style={{height:"40vh",overflow:"scroll",border:"black solid 3px"}}>
+   <div style={{height:"40vh",overflow:"scroll",boxShadow:"0 0 4px #dddddd"}}>
     <table>
         <tr>
           <th>Image</th>
