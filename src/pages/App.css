@@ -1,0 +1,134 @@
+body {
+  /* font-family: Monaco, monospace; */
+  background-color: #f2f2f2;
+  height: 100vh;
+}
+
+a {
+  color: rgb(58, 58, 98);
+  text-decoration: none;
+  text-align: center;
+  /* font-family: Monaco, monospace; */
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: bold;
+  color:black ;
+  padding: 1%;
+  text-align: center;
+  /* text-shadow: 2px 2px #f2f2f2; */
+  letter-spacing: 2px;
+  text-align: center;
+  /* margin-top: 50px; */
+  margin-bottom: 50px;
+  background-color: #1273c4 ;
+}
+
+h2 {
+  font-size: 24px;
+  font-family: Monaco, monospace;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #1273c4;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-family: Monaco, monospace;
+  font-size: large;
+  margin-left: 1%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  font-size: large;
+}
+
+th {
+  background-color: #dddddd;
+  color: black;
+  font-size: larger;
+}
+
+/* tr:nth-child(even) {
+  background-color: #bdc3ea;
+} */
+
+button:hover {
+  background-color: #074e88;
+  font-size: larger;
+}
+
+/* Style forms */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  /* font-family: Monaco, monospace; */
+  
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
+  border-color: #012245;
+  box-shadow: 0 0 4px #012245;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2px;
+  margin-left: 578px;
+}
+
+table img {
+  height: 100px;
+  width: 200px;
+}
+
+span{
+  text-align: center;
+}
+
+button#add-car-button {
+  margin-left: 120px;
+  display: flex;
+}
+
+footer{
+  background-color: #1273c4;
+  margin-bottom: 0px;
+  padding: 1%;
+}
