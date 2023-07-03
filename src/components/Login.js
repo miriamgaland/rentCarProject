@@ -30,7 +30,7 @@ function Login({connectUser, returnToHomePage}) {
 
   return (
     <div>
-      <h1>Log-in</h1>
+      <h2>Log-in</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

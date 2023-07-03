@@ -25,7 +25,7 @@ function App() {
   const [currentData, setData] = useState(data);
   const [carRent, setCarToRent] = useState(undefined);
   const [account, setAccount] = useState(null);
-  const [showSearch,setShowSearch]=useState(true)
+  const [showSearch, setShowSearch] = useState(true)
 
   const addCarToList = (car) => {
     data.push({ ...car, id: data.length + 1 });
@@ -67,22 +67,28 @@ function App() {
 
   const MainPage = (
     <div className="App">
-      <h1> Car Sharing </h1>
-      <UserProfile user={currentUser} />
-      <nav className="">
-      <img id="search-img" src={"./../search.jpg"} onClick={()=>setShowSearch(false)}></img>
-        {/* <button onClick={()=>setShowSearch(false)}><img id="search-img" src={"./../search.jpg"}/></button> */}
-        {!currentUser ? (
-          <button onClick={() => setPageName("LOGIN")}>Log In</button>
-        ) : (
-          <button onClick={() => setUser(undefined)}>Log Out</button>
-        )}
+      <nav>
+        <div class="nav-div">
+          {!currentUser ? (
+            <div class="nav-button" onClick={() => setPageName("LOGIN")}>Log In</div>
+          ) : (
+            <div class="nav-button" onClick={() => setUser(undefined)}>Log Out</div>
+          )}
+          <div class="nav-button"><a href="#about">About</a></div>
+          <div class="nav-button"><a href="#conact">Conact us</a></div>
+        </div>
+        <h1 > Car Sharing </h1>
+        <div class="nav-div">
+          <div class="nav-button" onClick={() => setShowSearch(false)}>
+            <img id="search-img" src={"./../search.png"} />
+          </div>
+          <div class="nav-button" onClick={() => setPageName("CAR_FORM")}>
+            Add Car
+          </div>
+        </div>
       </nav>
-      {!showSearch?<CarSearch setShowSearch={setShowSearch} filterCars={filterCars}/>:<></>}
-      
-      <button id="add-car-button" onClick={() => setPageName("CAR_FORM")}>
-        Add Car +{" "}
-      </button>
+      {!showSearch ? <CarSearch setShowSearch={setShowSearch} filterCars={filterCars} /> : <></>}
+      <UserProfile user={currentUser} />
       <CarList
         data={currentData}
         bookNowHandler={() => setPageName("RENT_FORM")}
@@ -126,7 +132,7 @@ function App() {
     }
   };
 
-  return <div>{showPage()}</div>;
+  return <div className="App">{showPage()}</div>;
 }
 
 export default App;

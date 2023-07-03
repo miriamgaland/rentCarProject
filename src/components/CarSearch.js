@@ -16,7 +16,6 @@ function CarSearch(props) {
 
   return (
     <div>
-      {/* <h2> Car Search </h2>  */}
       <form id="search-form" onSubmit={handleSearch}>
         <div style={{display:"flex",flexDirection:"row"}}>
           <div className="input">

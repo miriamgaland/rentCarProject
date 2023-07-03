@@ -27,7 +27,7 @@ function AddCar({addCarToList, returnToHomePage}) {
 
   return (
     <div>
-      <h1>Add Car</h1>
+      <h2>Add Car</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

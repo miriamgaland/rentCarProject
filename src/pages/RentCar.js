@@ -66,19 +66,13 @@ export default function RentCar({ car, account }) {
 
   return (
     <div id="rent-div">
-      <h2> Car Rental:</h2>
+      <h1> Car Rental</h1>
       <img src={car.carimage} />
-      {/* <br /> */}
       <span>{car.manufacturer}</span>
-      {/* <br /> */}
       <span>{car.model}</span>
-      {/* <br /> */}
       <span>{car.year}</span>
-      {/* <br /> */}
       <span>{car.price}</span>
-      {/* <br /> */}
       <span>{car.location}</span>
-      {/* <br /> */}
       <Select options={options} onChange={(e) => setHour(e.value)}>
         {" "}
         Select Hour{" "}

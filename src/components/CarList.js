@@ -1,11 +1,31 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import './CarList.css'
 
-function CarList({data, bookNowHandler, setCarToRent}) {
+function CarList({ data, bookNowHandler, setCarToRent }) {
 
- return (
-   <div style={{height:"40vh",overflow:"scroll",boxShadow:"0 0 4px #dddddd"}}>
-    <table>
+  return (
+    <div id="list">
+      {data.map((val) => {
+        const bookNow = () => {
+          bookNowHandler()
+          setCarToRent(val)
+        }
+        return (
+          <div className='card' key={val.id}>
+            <img className='img' src={val.carimage} />
+            <div>
+              Manufacturer <span>{val.manufacturer}</span><br />
+              Model <span>{val.model}</span><br />
+              Year of manufacture <span>{val.year}</span><br />
+              Price per hour <span>{val.price}</span><br />
+              Location <span>{val.location}</span>
+            </div>
+            <div><button className='list-btn' onClick={bookNow}> Book Now </button></div>
+          </div>
+        )
+      })}
+      {/* <table>
         <tr>
           <th>Image</th>
           <th>Manufacturer</th>
@@ -32,10 +52,10 @@ function CarList({data, bookNowHandler, setCarToRent}) {
             </tr>
           )
         })}
-      </table>
+      </table> */}
 
-   </div>
- );
+    </div>
+  );
 }
 
 export default CarList;
