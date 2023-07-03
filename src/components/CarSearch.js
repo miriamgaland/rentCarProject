@@ -16,6 +16,7 @@ function CarSearch(props) {
 
   return (
     <div>
+    <div>
       <form id="search-form" onSubmit={handleSearch}>
         <div style={{display:"flex",flexDirection:"row"}}>
           <div className="input">
@@ -35,6 +36,7 @@ function CarSearch(props) {
           <button type="submit">Search</button>
         </div>
       </form>
+    </div>
     </div>
   );
 }

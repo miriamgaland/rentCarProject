@@ -15,11 +15,11 @@ function CarList({ data, bookNowHandler, setCarToRent }) {
           <div className='card' key={val.id}>
             <img className='img' src={val.carimage} />
             <div>
-              Manufacturer <span>{val.manufacturer}</span><br />
-              Model <span>{val.model}</span><br />
-              Year of manufacture <span>{val.year}</span><br />
-              Price per hour <span>{val.price}</span><br />
-              Location <span>{val.location}</span>
+              Manufacturer <b>{val.manufacturer}</b><br />
+              Model <b>{val.model}</b><br />
+              Year of manufacture <b>{val.year}</b><br />
+              Price per hour <b>{val.price}</b><br />
+              Location <b>{val.location}</b>
             </div>
             <div><button className='list-btn' onClick={bookNow}> Book Now </button></div>
           </div>

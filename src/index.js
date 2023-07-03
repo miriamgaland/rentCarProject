@@ -24,7 +24,8 @@ root.render(
     <footer>
       <div id="about">
         <h3>about...</h3>
-        <div>Car Sharing is a car rental company <br />
+        <div>
+          Car Sharing is a car rental company <br />
           that has been working for you since 1982. <br />
           What guides us is the benefit of the customers. <br />
           We become more efficient over time and always face forward. <br />
@@ -33,8 +34,10 @@ root.render(
       </div>
       <div id="conact">
         <h3>Contact Us</h3>
-        <div> <br />
-
+        <div>
+          tel 055-7115889<br />
+          instegram.com/car_sharing/<br />
+          facebook.com/CarSharing <br />
         </div>
       </div>
     </footer>

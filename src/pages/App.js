@@ -45,50 +45,50 @@ function App() {
     setData(newData);
   };
 
-  useEffect(() => {
-    connectToWallet();
-  }, []);
+  // useEffect(() => {
+  //   connectToWallet();
+  // }, []);
 
-  const connectToWallet = async () => {
-    // set the provider you want from Web3.providers
-    const web3 = new Web3("http://localhost:7545");
-    const accounts = await web3.eth.getAccounts();
-    const balance = await web3.eth.getBalance(accounts[2]);
-    const account = await web3.eth.accounts.privateKeyToAccount(
-      "361a5c7667d4dd85b9a14e9abf394d32a51140984fe0aa3c6df56ae26ad51c21"
-    );
-    console.log(account);
-    setUser({
-      address: accounts[0],
-      balance: (balance / 10 ** 18).toFixed(2),
-    });
-    setAccount(account);
-  };
+  // const connectToWallet = async () => {
+  //   // set the provider you want from Web3.providers
+  //   const web3 = new Web3("http://localhost:7545");
+  //   const accounts = await web3.eth.getAccounts();
+  //   const balance = await web3.eth.getBalance(accounts[2]);
+  //   const account = await web3.eth.accounts.privateKeyToAccount(
+  //     "361a5c7667d4dd85b9a14e9abf394d32a51140984fe0aa3c6df56ae26ad51c21"
+  //   );
+  //   console.log(account);
+  //   setUser({
+  //     address: accounts[0],
+  //     balance: (balance / 10 ** 18).toFixed(2),
+  //   });
+  //   setAccount(account);
+  // };
 
   const MainPage = (
     <div className="App">
       <nav>
-        <div class="nav-div">
+        <div className="nav-div">
           {!currentUser ? (
-            <div class="nav-button" onClick={() => setPageName("LOGIN")}>Log In</div>
+            <div className="nav-button" onClick={() => setPageName("LOGIN")}>Log In</div>
           ) : (
-            <div class="nav-button" onClick={() => setUser(undefined)}>Log Out</div>
+            <div className="nav-button" onClick={() => setUser(undefined)}>Log Out</div>
           )}
-          <div class="nav-button"><a href="#about">About</a></div>
-          <div class="nav-button"><a href="#conact">Conact us</a></div>
+          <div className="nav-button"><a href="#about">About</a></div>
+          <div className="nav-button"><a href="#conact">Conact us</a></div>
         </div>
         <h1 > Car Sharing </h1>
-        <div class="nav-div">
-          <div class="nav-button" onClick={() => setShowSearch(false)}>
+        <div className="nav-div">
+          <div className="nav-button" onClick={() => setShowSearch(false)}>
             <img id="search-img" src={"./../search.png"} />
           </div>
-          <div class="nav-button" onClick={() => setPageName("CAR_FORM")}>
+          <div className="nav-button" onClick={() => setPageName("CAR_FORM")}>
             Add Car
           </div>
         </div>
       </nav>
       {!showSearch ? <CarSearch setShowSearch={setShowSearch} filterCars={filterCars} /> : <></>}
-      <UserProfile user={currentUser} />
+      {/* <UserProfile user={currentUser} /> */}
       <CarList
         data={currentData}
         bookNowHandler={() => setPageName("RENT_FORM")}

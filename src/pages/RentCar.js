@@ -3,7 +3,7 @@ import Select from "react-select";
 import "./RentCar.css";
 import Web3 from "web3";
 
-import CarSharing from "../contracts/CarSharing.json";
+//import CarSharing from "../contracts/CarSharing.json";
 
 export default function RentCar({ car, account }) {
   const [hour, setHour] = useState("");
@@ -35,52 +35,54 @@ export default function RentCar({ car, account }) {
   ];
 
   const handleRent = async () => {
-    try {
-      const web3 = new Web3("http://localhost:7545");
-      const accounts = await web3.eth.getAccounts();
-      const balance = await web3.eth.getBalance(accounts[2]);
+    //     try {
+    //       const web3 = new Web3("http://localhost:7545");
+    //       const accounts = await web3.eth.getAccounts();
+    //       const balance = await web3.eth.getBalance(accounts[2]);
 
-      if (parseInt(balance) < car.price * 10 ** 18) {
-        alert("Balance too low");
-        return;
-      }
-//matan ya ahabal
+    //       if (parseInt(balance) < car.price * 10 ** 18) {
+    //         alert("Balance too low");
+    //         return;
+    //       }
+    // //matan ya ahabal
 
-      const contract = new web3.eth.Contract(
-        CarSharing.abi,
-        "0xa02d3a1fF29cdac792C85Be78C7C707BFD108E80"      );
+    //       const contract = new web3.eth.Contract(
+    //         CarSharing.abi,
+    //         "0xa02d3a1fF29cdac792C85Be78C7C707BFD108E80"      );
 
-      const account = await web3.eth.accounts.privateKeyToAccount(
-        "361a5c7667d4dd85b9a14e9abf394d32a51140984fe0aa3c6df56ae26ad51c21"
-        
-      );
-      const tx = await contract.methods.rental().send({
-        from: account.address,
-        value: car.price * 10 ** 18,
-      });
-      alert("Rental successful");
-    } catch (error) {
-      console.log(error);
-    }
+    //       const account = await web3.eth.accounts.privateKeyToAccount(
+    //         "361a5c7667d4dd85b9a14e9abf394d32a51140984fe0aa3c6df56ae26ad51c21"
+
+    //       );
+    //       const tx = await contract.methods.rental().send({
+    //         from: account.address,
+    //         value: car.price * 10 ** 18,
+    //       });
+    //       alert("Rental successful");
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
   };
 
   return (
-    <div id="rent-div">
-      <h1> Car Rental</h1>
-      <img src={car.carimage} />
-      <span>{car.manufacturer}</span>
-      <span>{car.model}</span>
-      <span>{car.year}</span>
-      <span>{car.price}</span>
-      <span>{car.location}</span>
-      <Select options={options} onChange={(e) => setHour(e.value)}>
-        {" "}
-        Select Hour{" "}
-      </Select>
-      <button id="rent-now-button" onClick={handleRent}>
-        {" "}
-        Rent Now{" "}
-      </button>
+    <div className="form-wrap">
+      <div id="rent-div">
+        <h1> Car Rental</h1>
+        <img src={car.carimage} />
+        <span>Manufacture <b>{car.manufacturer}</b></span>
+        <span>Model <b>{car.model}</b></span>
+        <span>Year of manufacture <b>{car.year}</b></span>
+        <span>Price per hour <b>{car.price}</b></span>
+        <span>Location <b>{car.location}</b></span>
+        <Select options={options} onChange={(e) => setHour(e.value)}>
+          {" "}
+          Select Hour{" "}
+        </Select>
+        <button id="rent-now-button" onClick={handleRent}>
+          {" "}
+          Rent Now{" "}
+        </button>
+      </div>
     </div>
   );
 }

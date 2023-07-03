@@ -26,7 +26,8 @@ function AddCar({addCarToList, returnToHomePage}) {
   };
 
   return (
-    <div>
+    <div className="form-wrap">
+    <div className="main-div">
       <h2>Add Car</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -69,6 +70,7 @@ function AddCar({addCarToList, returnToHomePage}) {
           <button type="submit">Add Car</button>
         </div>
       </form>
+    </div>
     </div>
   );
 }
