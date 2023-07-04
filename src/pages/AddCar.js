@@ -71,6 +71,7 @@ function AddCar({addCarToList, returnToHomePage}) {
         </div>
       </form>
     </div>
+    <div onClick={returnToHomePage}><img className="home" src={"./../home.png"}></img></div>
     </div>
   );
 }

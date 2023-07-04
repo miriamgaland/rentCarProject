@@ -48,6 +48,7 @@ function Login({ connectUser, returnToHomePage }) {
           <button type="submit">connect</button>
           {!isValid && (<div> The user information is incorrect. Check again if the username or password is correct. </div>)}
         </form>
+        <div onClick={returnToHomePage}><img className="home" src={"./../home.png"}></img></div>
       </div>
     </div>
   );

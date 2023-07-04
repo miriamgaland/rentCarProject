@@ -5,7 +5,7 @@ import Web3 from "web3";
 
 //import CarSharing from "../contracts/CarSharing.json";
 
-export default function RentCar({ car, account }) {
+export default function RentCar({ car,account, returnToHomePage}) {
   const [hour, setHour] = useState("");
   const options = [
     { value: 1, label: "1 a.m." },
@@ -68,21 +68,28 @@ export default function RentCar({ car, account }) {
     <div className="form-wrap">
       <h1> Car Rental</h1>
       <div id="rent-div">
-        <div><img src={car.carimage} /></div>
-        <div style={{display:"flex",flexDirection:"column",width:"20vw",alignItems:"center",height:"40vh",justifyContent:"space-around"}}>
-        <span>Manufacture <b>{car.manufacturer}</b></span>
-        <span>Model <b>{car.model}</b></span>
-        <span>Year of manufacture <b>{car.year}</b></span>
-        <span>Price per hour <b>{car.price}</b></span>
-        <span>Location <b>{car.location}</b></span>
-        <Select options={options} onChange={(e) => setHour(e.value)}>
-          {" "}
-          Select Hour{" "}
-        </Select>
-        <button id="rent-now-button" onClick={handleRent}>
-          {" "}
-          Rent Now{" "}
-        </button></div>
+        <div onClick={returnToHomePage}>
+          <img className="home" src={"./../home.png"}></img>
+        </div>
+        <div>
+          <img src={car.carimage} />
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", width: "20vw", alignItems: "center", height: "45vh", justifyContent: "space-around" }}>
+          <span>Manufacture <b>{car.manufacturer}</b></span>
+          <span>Model <b>{car.model}</b></span>
+          <span>Year of manufacture <b>{car.year}</b></span>
+          <span>Price per hour <b>{car.price}</b></span>
+          <span>Location <b>{car.location}</b></span>
+          <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", fontSize: "larger", width: "12vw" }}>
+            Hour
+            <Select options={options} onChange={(e) => setHour(e.value)}>
+              {/* {" "} */}
+              Select Hour{" "}
+            </Select></div>
+          <button id="rent-now-button" onClick={handleRent}>
+            {" "}
+            Rent Now{" "}
+          </button></div>
       </div>
     </div>
   );

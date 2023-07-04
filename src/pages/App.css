@@ -70,6 +70,18 @@ form {
   box-shadow: 0 0 9px #0000001a;
 }
 
+.home{
+  height: 29px;
+  width: auto;
+  margin: 0px;
+  position: absolute;
+  top:2vh;
+  left: 2vw;
+  background-color: #1273c4;
+  border-radius: 10%;
+  padding: 0.5%;
+}
+
 button {
   background-color: #1273c4;
   color: #fff;

@@ -37,7 +37,7 @@ function App() {
       if (
         car.price >= min &&
         car.price <= max &&
-        car.location.toLowerCase().match("/*" + loc + "/*")
+        car.location.toLowerCase().match("/*" + loc.toLowerCase() + "/*")
       ) {
         newData.push(car);
       }
@@ -93,6 +93,9 @@ function App() {
         data={currentData}
         bookNowHandler={() => setPageName("RENT_FORM")}
         setCarToRent={setCarToRent}
+        returnToHomePage={() => {
+          setPageName("HOME");
+        }}
       />
     </div>
   );
@@ -115,7 +118,9 @@ function App() {
     />
   );
 
-  const RentCarPage = <RentCar car={carRent} account={account} />;
+  const RentCarPage = <RentCar car={carRent} account={account} returnToHomePage={() => {
+    setPageName("HOME");
+  }} />;
 
   const showPage = () => {
     switch (pageName) {
