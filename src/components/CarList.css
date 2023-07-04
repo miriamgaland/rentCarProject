@@ -1,0 +1,37 @@
+#list{
+    height: 85vh;
+    overflow: auto;
+    /* margin: 1vh; */
+    /* box-shadow: 0 0 4px #dddddd; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.card{
+    /* border: black solid 2px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 4px;
+    width: 25%;
+    align-items: center;
+    text-align: center;
+    margin: 2vw;
+    box-shadow: 0 0 15px #0000001a;
+
+}
+
+.card:hover{
+    box-shadow: 0 0 12px #1273c4;
+}
+
+.img{
+    width: 90%;
+}
+
+.list-btn{
+    margin:13px
+}
