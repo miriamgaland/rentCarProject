@@ -66,9 +66,10 @@ export default function RentCar({ car, account }) {
 
   return (
     <div className="form-wrap">
+      <h1> Car Rental</h1>
       <div id="rent-div">
-        <h1> Car Rental</h1>
-        <img src={car.carimage} />
+        <div><img src={car.carimage} /></div>
+        <div style={{display:"flex",flexDirection:"column",width:"20vw",alignItems:"center",height:"40vh",justifyContent:"space-around"}}>
         <span>Manufacture <b>{car.manufacturer}</b></span>
         <span>Model <b>{car.model}</b></span>
         <span>Year of manufacture <b>{car.year}</b></span>
@@ -81,7 +82,7 @@ export default function RentCar({ car, account }) {
         <button id="rent-now-button" onClick={handleRent}>
           {" "}
           Rent Now{" "}
-        </button>
+        </button></div>
       </div>
     </div>
   );
