@@ -78,7 +78,7 @@ export default function RentCar({ car,account, returnToHomePage}) {
           <span>Manufacture <b>{car.manufacturer}</b></span>
           <span>Model <b>{car.model}</b></span>
           <span>Year of manufacture <b>{car.year}</b></span>
-          <span>Price per hour <b>{car.price}</b></span>
+          <span>Price per day <b>{car.price}</b></span>
           <span>Location <b>{car.location}</b></span>
           <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", fontSize: "larger", width: "12vw" }}>
             Hour

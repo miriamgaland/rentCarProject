@@ -18,7 +18,7 @@ function CarList({ data, bookNowHandler, setCarToRent}) {
               Manufacturer <b>{val.manufacturer}</b><br />
               Model <b>{val.model}</b><br />
               Year of manufacture <b>{val.year}</b><br />
-              Price per hour <b>{val.price}</b><br />
+              Price per day <b>{val.price}</b><br />
               Location <b>{val.location}</b>
             </div>
             <div><button className='list-btn' onClick={bookNow}> Book Now </button></div>

@@ -1,23 +1,18 @@
 // Imports:
 import "./App.css";
-import "./AddCar";
 //import CarSharing from "./contracts/CarSharing.json";
-
-import { useEffect } from "react";
-
+import React, { useEffect, useState } from "react";
 import CarList from "../components/CarList";
 import CarSearch from "../components/CarSearch";
 import RentCar from "./RentCar";
 import Login from "../components/Login";
 import UserProfile from "../components/UserProfile";
-import { Link } from "react-router-dom";
 import { data, users } from "../data";
-
-import React from "react";
-import { useState } from "react";
 import AddCar from "./AddCar";
+import About from "./About";
+import SignIn from "../components/SignIn";
 
-import Web3 from "web3";
+// import Web3 from "web3";
 
 function App() {
   const [pageName, setPageName] = useState("HOME");
@@ -70,25 +65,29 @@ function App() {
       <nav>
         <div className="nav-div">
           {!currentUser ? (
-            <div className="nav-button" onClick={() => setPageName("LOGIN")}>Log In</div>
+            <>
+              <div className="nav-button" onClick={() => setPageName("LOGIN")}>Log In</div>
+              <div className="nav-button" onClick={() => setPageName("SIGNIN")}>Sign In</div>
+            </>
           ) : (
             <div className="nav-button" onClick={() => setUser(undefined)}>Log Out</div>
           )}
-          <div className="nav-button"><a href="#about">About</a></div>
-          <div className="nav-button"><a href="#conact">Conact us</a></div>
-        </div>
-        <h1 > Car Sharing </h1>
-        <div className="nav-div">
-          <div className="nav-button" onClick={() => setShowSearch(false)}>
-            <img id="search-img" src={"./../search.png"} />
-          </div>
           <div className="nav-button" onClick={() => setPageName("CAR_FORM")}>
             Add Car
           </div>
+          <div className="nav-button" onClick={() => setPageName("ABOUT")}>About</div>
+          <div className="nav-button"><a href="#conact">Conact us</a></div>
+        </div>
+        <h1 > Car Sharing </h1>
+        <div className="nav-div" style={{justifyContent:"end"}}>
+          <div className="nav-button" onClick={() => setShowSearch(false)}>
+            <img id="search-img" src={"./../search.png"} />
+          </div>
+
         </div>
       </nav>
       {!showSearch ? <CarSearch setShowSearch={setShowSearch} filterCars={filterCars} /> : <></>}
-      {/* <UserProfile user={currentUser} /> */}
+      <UserProfile user={currentUser} />
       <CarList
         data={currentData}
         bookNowHandler={() => setPageName("RENT_FORM")}
@@ -106,9 +105,20 @@ function App() {
       returnToHomePage={() => {
         setPageName("HOME");
       }}
+      moveToSignIn={() => {
+        setPageName("SIGNIN")
+      }}
     />
   );
 
+  const SignInPage = (
+    <SignIn
+      connectUser={setUser}
+      returnToHomePage={() => {
+        setPageName("HOME");
+      }}
+    />
+  );
   const AddCarPage = (
     <AddCar
       addCarToList={addCarToList}
@@ -120,6 +130,11 @@ function App() {
 
   const RentCarPage = <RentCar car={carRent} account={account} returnToHomePage={() => {
     setPageName("HOME");
+    console.log('ggf', currentUser);
+  }} />;
+
+  const AboutPage = <About returnToHomePage={() => {
+    setPageName("HOME");
   }} />;
 
   const showPage = () => {
@@ -130,8 +145,12 @@ function App() {
         return AddCarPage;
       case "LOGIN":
         return LoginPage;
+      case "SIGNIN":
+        return SignInPage;
       case "RENT_FORM":
         return RentCarPage;
+      case "ABOUT":
+        return AboutPage;
       default:
         return "HOME";
     }

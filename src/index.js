@@ -22,7 +22,7 @@ root.render(
       {/* <Route path="*" element={<NoPage />} /> */}
     </Routes>
     <footer>
-      <div id="about">
+      {/* <div id="about">
         <h3>about...</h3>
         <div>
           Car Sharing is a car rental company <br />
@@ -31,7 +31,7 @@ root.render(
           We become more efficient over time and always face forward. <br />
           <h4>for you</h4>
         </div>
-      </div>
+      </div> */}
       <div id="conact">
         <h3>Contact Us</h3>
         <div>
