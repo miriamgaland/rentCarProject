@@ -5,7 +5,7 @@ import Web3 from "web3";
 
 //import CarSharing from "../contracts/CarSharing.json";
 
-export default function RentCar({ car,account, returnToHomePage}) {
+export default function RentCar({ car, account, returnToHomePage }) {
   const [hour, setHour] = useState("");
   const options = [
     { value: 1, label: "1 a.m." },
@@ -74,7 +74,7 @@ export default function RentCar({ car,account, returnToHomePage}) {
         <div>
           <img src={car.carimage} />
         </div>
-        <div style={{ display: "flex", flexDirection: "column", width: "20vw", alignItems: "center", height: "45vh", justifyContent: "space-around" }}>
+        <div style={{ display: "flex", flexDirection: "column", width: "20vw", alignItems: "center", height: "50vh", justifyContent: "space-around" }}>
           <span>Manufacture <b>{car.manufacturer}</b></span>
           <span>Model <b>{car.model}</b></span>
           <span>Year of manufacture <b>{car.year}</b></span>
@@ -87,9 +87,9 @@ export default function RentCar({ car,account, returnToHomePage}) {
               Select Hour{" "}
             </Select></div>
           <button id="rent-now-button" onClick={handleRent}>
-            {" "}
-            Rent Now{" "}
-          </button></div>
+            Rent Now
+          </button>
+        </div>
       </div>
     </div>
   );

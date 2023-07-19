@@ -19,7 +19,6 @@ a {
 
 .nav-button {
   height: 40px;
-  /* font-size: medium; */
   padding-left: 10px;
   padding-right: 5px;
 }
@@ -115,25 +114,17 @@ input:focus {
 }
 
 nav {
-  /* display: flex; */
-  /* justify-content: space-between; */
   height: 10vh;
-  /* font-size: 35px; */
   font-weight: bold;
   margin: 0;
   box-shadow: 0 8px 15px #0000001a;
   padding-left: 1vw;
-  /* padding-right: 1vw; */
-  /* align-items: flex-end; */
   margin-bottom: 5vh;
-  /* padding-top: 3vh; */
 }
 
 .nav-div {
   padding-top: 3vh;
   display: inline-flex;
-  /* flex-direction: row; */
-  /* align-items: center; */
   width: 41vw;
 }
 
@@ -141,8 +132,8 @@ nav {
   height: 29px;
   width: auto;
   margin: 0px;
+  padding-right: 7px;
 }
-
 
 span {
   text-align: center;

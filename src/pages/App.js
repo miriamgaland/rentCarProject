@@ -78,12 +78,11 @@ function App() {
           <div className="nav-button" onClick={() => setPageName("ABOUT")}>About</div>
           <div className="nav-button"><a href="#conact">Conact us</a></div>
         </div>
-        <h1 > Car Sharing </h1>
-        <div className="nav-div" style={{justifyContent:"end"}}>
-          <div className="nav-button" onClick={() => setShowSearch(false)}>
+        <h1> Car Sharing </h1>
+        <div className="nav-div" style={{ justifyContent: "end", height: "7vh" }}>
+          <div onClick={() => setShowSearch(false)}>
             <img id="search-img" src={"./../search.png"} />
           </div>
-
         </div>
       </nav>
       {!showSearch ? <CarSearch setShowSearch={setShowSearch} filterCars={filterCars} /> : <></>}
