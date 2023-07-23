@@ -12,7 +12,7 @@ import AddCar from "./AddCar";
 import About from "./About";
 import SignIn from "../components/SignIn";
 
-// import Web3 from "web3";
+import Web3 from "web3";
 
 function App() {
   const [pageName, setPageName] = useState("HOME");
@@ -60,6 +60,33 @@ function App() {
   //   setAccount(account);
   // };
 
+  // useEffect(() => {
+  //   const connectMetamask = async () => {
+  //     if (window.ethereum) {
+  //       try {
+  //         // Request account access
+  //         await window.ethereum.request({ method: 'eth_requestAccounts' });
+          
+  //         // Create a new web3 instance
+  //         const web3Instance = new Web3(window.ethereum);
+          
+  //         // Set the web3 instance and user's account address
+  //         //setWeb3(web3Instance);
+  //         const account = await web3Instance.eth.getAccounts();
+  //         //const balance=await web3Instance.eth.getBalance();
+  //         //console.log('bala',balance)
+  //         setAccount(account[0]);
+  //       } catch (error) {
+  //         console.error(error);
+  //       }
+  //     } else {
+  //         console.error('Metamask extension not detected!');
+  //     }
+  //   };
+
+  //   connectMetamask();
+  // }, []);
+
   const MainPage = (
     <div className="App">
       <nav>
@@ -76,15 +103,16 @@ function App() {
             Add Car
           </div>
           <div className="nav-button" onClick={() => setPageName("ABOUT")}>About</div>
-          <div className="nav-button"><a href="#conact">Conact us</a></div>
+          <div className="nav-button"><a href="#conact">Contact us</a></div>
         </div>
-        <h1> Car Sharing </h1>
-        <div className="nav-div" style={{ justifyContent: "end", height: "7vh" }}>
-          <div onClick={() => setShowSearch(false)}>
+        
+        <div className="nav-div search-div">
+          <div style={{height:"29px"}} onClick={() => setShowSearch(false)}>
             <img id="search-img" src={"./../search.png"} />
           </div>
         </div>
       </nav>
+      <h1 style={{position:"relative",top:"-13vh"}}> Car Sharing </h1>   
       {!showSearch ? <CarSearch setShowSearch={setShowSearch} filterCars={filterCars} /> : <></>}
       <UserProfile user={currentUser} />
       <CarList
@@ -130,6 +158,7 @@ function App() {
   const RentCarPage = <RentCar car={carRent} account={account} returnToHomePage={() => {
     setPageName("HOME");
     console.log('ggf', currentUser);
+    console.log('acc',account)
   }} />;
 
   const AboutPage = <About returnToHomePage={() => {

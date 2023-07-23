@@ -2,9 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './pages/App';
-import AddCar from './pages/AddCar';
-import Login from './components/Login';
-// import Rental from './pages/Rental';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -15,29 +12,23 @@ root.render(
     {/* <header><img id="head-img" src={"./../image.jpg"}/></header> */}
     <Routes>
       <Route exact path="/" element={<App />} />
-      {/* <Route index element={<App />} /> */}
-      <Route path="/addCar" element={<AddCar />} />
-      <Route path="/login" element={<Login />} />
-      {/* <Route path="rental" element={<Rental />} /> */}
-      {/* <Route path="*" element={<NoPage />} /> */}
     </Routes>
-    <footer>
-      {/* <div id="about">
-        <h3>about...</h3>
-        <div>
-          Car Sharing is a car rental company <br />
-          that has been working for you since 1982. <br />
-          What guides us is the benefit of the customers. <br />
-          We become more efficient over time and always face forward. <br />
-          <h4>for you</h4>
-        </div>
-      </div> */}
+    <footer style={{position:"sticky"}}>
       <div id="conact">
         <h3>Contact Us</h3>
         <div>
-          tel 055-7115889<br />
-          instegram.com/car_sharing/<br />
-          facebook.com/CarSharing <br />
+          <div className='f-div'>
+            <img src="./whatsapp.png" className='footer-img' />
+            <span className='f-span'>055-7115889</span>
+          </div>
+          <div className='f-div'>
+            <img src="./instagram.png" className='footer-img' />
+            <span className='f-span'>instagram.com/car_sharing/</span>
+          </div>
+          <div className='f-div'>
+            <img src="./facebook.png" className='footer-img' />
+            <span className='f-span'>facebook.com/CarSharing</span>
+          </div>
         </div>
       </div>
     </footer>

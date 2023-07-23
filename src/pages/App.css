@@ -1,4 +1,5 @@
-h3,h4 {
+h3,
+h4 {
   margin: 2px
 }
 
@@ -9,6 +10,7 @@ a {
 
 .App {
   margin: 0;
+  text-align: center;
 }
 
 .form-wrap {
@@ -119,20 +121,31 @@ nav {
   margin: 0;
   box-shadow: 0 8px 15px #0000001a;
   padding-left: 1vw;
+  padding-right: 1vw;
   margin-bottom: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
 }
 
 .nav-div {
-  padding-top: 3vh;
+  padding-top: 4vh;
   display: inline-flex;
-  width: 41vw;
 }
 
 #search-img {
   height: 29px;
   width: auto;
   margin: 0px;
-  padding-right: 7px;
+}
+
+.search-div{
+  padding:1vh;
+  border-radius:50%; 
+}
+
+.search-div:hover{
+  box-shadow: 0 0 6px #1273c4;
 }
 
 span {

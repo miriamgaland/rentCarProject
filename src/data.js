@@ -135,8 +135,6 @@ export let data = [
     price: "45",
     location: "Jerusalem"
   }
-
-
 ];
 
 export let users = [

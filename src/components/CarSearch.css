@@ -19,7 +19,6 @@ h2 {
 .span {
   font-size: large;
   text-align: left;
-  /* margin-left: 7px; */
 }
 
 input {
@@ -35,7 +34,6 @@ input:focus {
   outline: none;
   border-color: #1273c4;
   box-shadow: 0 0 4px #1273c4;
-  /* font-family: Monaco, monospace; */
   text-align: center;
 }
 

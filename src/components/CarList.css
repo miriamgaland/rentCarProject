@@ -1,8 +1,6 @@
 #list{
     height: 85vh;
     overflow: auto;
-    /* margin: 1vh; */
-    /* box-shadow: 0 0 4px #dddddd; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -11,7 +9,6 @@
 }
 
 .card{
-    /* border: black solid 2px; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -21,7 +18,6 @@
     text-align: center;
     margin: 2vw;
     box-shadow: 0 0 15px #0000001a;
-
 }
 
 .card:hover{

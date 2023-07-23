@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import "./RentCar.css";
 import Web3 from "web3";
+import CarSharing from "../contracts/CarSharing.json";
 
-//import CarSharing from "../contracts/CarSharing.json";
-
-export default function RentCar({ car, account, returnToHomePage }) {
+export default function RentCar({ car, returnToHomePage }) {
   const [hour, setHour] = useState("");
+  const [web3, setWeb3] = useState(null)
   const options = [
     { value: 1, label: "1 a.m." },
     { value: 2, label: "2 a.m." },
@@ -34,34 +34,52 @@ export default function RentCar({ car, account, returnToHomePage }) {
     { value: 24, label: "12 p.m." },
   ];
 
+  useEffect(() => {
+    const connectMetamask = async () => {
+      if (window.ethereum) {
+        try {
+          // Request account access
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+          // Create a new web3 instance
+          const web3Instance = new Web3(window.ethereum);
+
+          // Set the web3 instance and user's account address
+          setWeb3(web3Instance);
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        console.error('Metamask extension not detected!');
+      }
+    };
+
+    connectMetamask();
+  }, []);
+
   const handleRent = async () => {
-    //     try {
-    //       const web3 = new Web3("http://localhost:7545");
-    //       const accounts = await web3.eth.getAccounts();
-    //       const balance = await web3.eth.getBalance(accounts[2]);
+    try {
+      const [selectedAddress] = await web3.eth.getAccounts();
+      const balance = await web3.eth.getBalance(selectedAddress)
+      if (parseInt(balance) < parseInt(24 * car.price*10**18)) {
+        alert("Balance too low");
+        returnToHomePage()
+      }
+      const contract = new web3.eth.Contract(
+        CarSharing.abi,
+        "0xa02d3a1fF29cdac792C85Be78C7C707BFD108E80"
+      );
 
-    //       if (parseInt(balance) < car.price * 10 ** 18) {
-    //         alert("Balance too low");
-    //         return;
-    //       }
-    // //matan ya ahabal
-
-    //       const contract = new web3.eth.Contract(
-    //         CarSharing.abi,
-    //         "0xa02d3a1fF29cdac792C85Be78C7C707BFD108E80"      );
-
-    //       const account = await web3.eth.accounts.privateKeyToAccount(
-    //         "361a5c7667d4dd85b9a14e9abf394d32a51140984fe0aa3c6df56ae26ad51c21"
-
-    //       );
-    //       const tx = await contract.methods.rental().send({
-    //         from: account.address,
-    //         value: car.price * 10 ** 18,
-    //       });
-    //       alert("Rental successful");
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
+      const result = await contract.methods.rental().send({
+        from: selectedAddress,
+        value: web3.utils.toWei((24 * car.price).toString(), 'ether')
+      })
+      alert("Rental successful")
+      returnToHomePage()
+    }
+    catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -89,6 +107,7 @@ export default function RentCar({ car, account, returnToHomePage }) {
           <button id="rent-now-button" onClick={handleRent}>
             Rent Now
           </button>
+          <a target="_blank" href="https://icons8.com/icon/g7SBGFwja0xa/instagram">Instagram</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
         </div>
       </div>
     </div>
