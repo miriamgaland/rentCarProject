@@ -4,7 +4,7 @@ import "./RentCar.css";
 import Web3 from "web3";
 import CarSharing from "../contracts/CarSharing.json";
 
-export default function RentCar({ car, returnToHomePage }) {
+export default function RentCar({ car, returnToHomePage,success }) {
   const [hour, setHour] = useState("");
   const [web3, setWeb3] = useState(null)
   const options = [
@@ -58,28 +58,28 @@ export default function RentCar({ car, returnToHomePage }) {
   }, []);
 
   const handleRent = async () => {
-    try {
-      const [selectedAddress] = await web3.eth.getAccounts();
-      const balance = await web3.eth.getBalance(selectedAddress)
-      if (parseInt(balance) < parseInt(24 * car.price * 10 ** 18)) {
-        alert("Balance too low");
-        returnToHomePage()
-      }
-      const contract = new web3.eth.Contract(
-        CarSharing.abi,
-        "0x8f960C819C8Ae5988c9007Ab74c0f77FcA9A7C96"
-      );
+    // try {
+    //   const [selectedAddress] = await web3.eth.getAccounts();
+    //   const balance = await web3.eth.getBalance(selectedAddress)
+    //   if (parseInt(balance) < parseInt(24 * car.price * 10 ** 18)) {
+    //     alert("Balance too low");
+    //     returnToHomePage()
+    //   }
+    //   const contract = new web3.eth.Contract(
+    //     CarSharing.abi,
+    //     "0x8f960C819C8Ae5988c9007Ab74c0f77FcA9A7C96"
+    //   );
 
-      const result = await contract.methods.rental().send({
-        from: selectedAddress,
-        value: web3.utils.toWei((24 * car.price).toString(), 'ether')
-      })
-      alert("Rental successful")
-      returnToHomePage()
-    }
-    catch (error) {
-      console.log(error);
-    }
+    //   const result = await contract.methods.rental().send({
+    //     from: selectedAddress,
+    //     // value: web3.utils.toWei('0.1', 'ether')
+    //     value: web3.utils.toWei((24 * car.price).toString(), 'ether')
+    //   })
+    success()
+    // }
+    // catch (error) {
+    //   console.log(error);
+    // }
   };
 
   return (
