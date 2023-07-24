@@ -66,10 +66,10 @@ function App() {
   //       try {
   //         // Request account access
   //         await window.ethereum.request({ method: 'eth_requestAccounts' });
-          
+
   //         // Create a new web3 instance
   //         const web3Instance = new Web3(window.ethereum);
-          
+
   //         // Set the web3 instance and user's account address
   //         //setWeb3(web3Instance);
   //         const account = await web3Instance.eth.getAccounts();
@@ -105,14 +105,13 @@ function App() {
           <div className="nav-button" onClick={() => setPageName("ABOUT")}>About</div>
           <div className="nav-button"><a href="#conact">Contact us</a></div>
         </div>
-        
         <div className="nav-div search-div">
-          <div style={{height:"29px"}} onClick={() => setShowSearch(false)}>
+          <div style={{ height: "29px" }} onClick={() => setShowSearch(false)}>
             <img id="search-img" src={"./../search.png"} />
           </div>
         </div>
       </nav>
-      <h1 style={{position:"relative",top:"-13vh"}}> Car Sharing </h1>   
+      <h1 style={{ position: "relative", top: "-14vh" }}> Car Sharing </h1>
       {!showSearch ? <CarSearch setShowSearch={setShowSearch} filterCars={filterCars} /> : <></>}
       <UserProfile user={currentUser} />
       <CarList
@@ -157,8 +156,6 @@ function App() {
 
   const RentCarPage = <RentCar car={carRent} account={account} returnToHomePage={() => {
     setPageName("HOME");
-    console.log('ggf', currentUser);
-    console.log('acc',account)
   }} />;
 
   const AboutPage = <About returnToHomePage={() => {

@@ -46,14 +46,14 @@ contract CarSharing {
     function rental() public payable {
         require(msg.value > 0, "Please send some ether");
         (bool sent, ) = address(this).call{value: msg.value}("");
-        require(sent,"rent failed");
+        require(sent, "rent failed");
     }
 
     function getOwner() public view returns (address) {
         return owner;
     }
-    
-receive() external payable {
+
+    receive() external payable {
         emit PaymentReceived(msg.sender, msg.value);
     }
 }

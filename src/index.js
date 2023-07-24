@@ -9,12 +9,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <BrowserRouter>
-    {/* <header><img id="head-img" src={"./../image.jpg"}/></header> */}
     <Routes>
       <Route exact path="/" element={<App />} />
     </Routes>
-    <footer style={{position:"sticky"}}>
-      <div id="conact">
+    <footer>
+      <div id="conact" style={{paddingLeft:"2vw"}}>
         <h3>Contact Us</h3>
         <div>
           <div className='f-div'>

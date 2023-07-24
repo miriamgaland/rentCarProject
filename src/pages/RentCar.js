@@ -61,7 +61,7 @@ export default function RentCar({ car, returnToHomePage }) {
     try {
       const [selectedAddress] = await web3.eth.getAccounts();
       const balance = await web3.eth.getBalance(selectedAddress)
-      if (parseInt(balance) < parseInt(24 * car.price*10**18)) {
+      if (parseInt(balance) < parseInt(24 * car.price * 10 ** 18)) {
         alert("Balance too low");
         returnToHomePage()
       }
@@ -107,7 +107,6 @@ export default function RentCar({ car, returnToHomePage }) {
           <button id="rent-now-button" onClick={handleRent}>
             Rent Now
           </button>
-          <a target="_blank" href="https://icons8.com/icon/g7SBGFwja0xa/instagram">Instagram</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
         </div>
       </div>
     </div>
