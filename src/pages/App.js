@@ -10,7 +10,7 @@ import { data} from "../data";
 import AddCar from "./AddCar";
 import About from "./About";
 import SignIn from "../components/SignIn";
-import Success from "./Sucess";
+import Success from "./Success";
 
 function App() {
   const [pageName, setPageName] = useState("HOME");
