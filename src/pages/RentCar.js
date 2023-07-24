@@ -67,7 +67,7 @@ export default function RentCar({ car, returnToHomePage }) {
       }
       const contract = new web3.eth.Contract(
         CarSharing.abi,
-        "0xa02d3a1fF29cdac792C85Be78C7C707BFD108E80"
+        "0x8f960C819C8Ae5988c9007Ab74c0f77FcA9A7C96"
       );
 
       const result = await contract.methods.rental().send({
