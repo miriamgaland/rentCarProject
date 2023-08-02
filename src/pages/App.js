@@ -119,7 +119,7 @@ function App() {
 
   const SuccessPage = <Success returnToHomePage={() => {
     setPageName("HOME");
-  }} />;
+  }} car={carRent} user={currentUser}/>;
 
   const showPage = () => {
     switch (pageName) {
