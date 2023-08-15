@@ -4,7 +4,7 @@ import "./RentCar.css";
 import Web3 from "web3";
 import CarSharing from "../contracts/CarSharing.json";
 
-export default function RentCar({ car, returnToHomePage }) {
+export default function RentCar({ car, returnToHomePage, success }) {
   const [hour, setHour] = useState("");
   const [web3, setWeb3] = useState(null)
   const options = [
@@ -59,17 +59,18 @@ export default function RentCar({ car, returnToHomePage }) {
 
   const handleRent = async () => {
     try {
-      const [selectedAddress] = await web3.eth.getAccounts();
-      const balance = await web3.eth.getBalance(selectedAddress)
-      if (parseInt(balance) < parseInt(24 * car.price * 10 ** 18)) {
-        alert("Balance too low");
-        returnToHomePage()
-      }
-      const contract = new web3.eth.Contract(
-        CarSharing.abi,
-        "0x8f960C819C8Ae5988c9007Ab74c0f77FcA9A7C96"
-      );
+      // const [selectedAddress] = await web3.eth.getAccounts();
+      // const balance = await web3.eth.getBalance(selectedAddress)
+      // if (parseInt(balance) < parseInt(24 * car.price * 10 ** 18)) {
+      //   alert("Balance too low");
+      //   returnToHomePage()
+      // }
+      // const contract = new web3.eth.Contract(
+      //   CarSharing.abi,
+      //   "0x8f960C819C8Ae5988c9007Ab74c0f77FcA9A7C96"
+      // );
 
+<<<<<<< HEAD
       const result = await contract.methods.rental().send({
         from: selectedAddress,
         value: web3.utils.toWei('0.1', 'ether')
@@ -77,6 +78,14 @@ export default function RentCar({ car, returnToHomePage }) {
       })
       alert("Rental successful")
       returnToHomePage()
+=======
+      // const result = await contract.methods.rental().send({
+      //   from: selectedAddress,
+      //   // value: web3.utils.toWei('0.1', 'ether')
+      //   value: web3.utils.toWei((24 * car.price).toString(), 'ether')
+      // })
+      success()
+>>>>>>> 54d6d3def3ef0a724645001ebba088d069db110d
     }
     catch (error) {
       console.log(error);
@@ -97,12 +106,11 @@ export default function RentCar({ car, returnToHomePage }) {
           <span>Manufacture <b>{car.manufacturer}</b></span>
           <span>Model <b>{car.model}</b></span>
           <span>Year of manufacture <b>{car.year}</b></span>
-          <span>Price per day <b>{car.price}</b></span>
+          <span>Price per hour <b>{car.price}</b></span>
           <span>Location <b>{car.location}</b></span>
           <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", fontSize: "larger", width: "12vw" }}>
             Hour
             <Select options={options} onChange={(e) => setHour(e.value)}>
-              {/* {" "} */}
               Select Hour{" "}
             </Select></div>
           <button id="rent-now-button" onClick={handleRent}>
