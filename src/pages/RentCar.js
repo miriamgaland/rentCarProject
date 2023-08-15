@@ -72,7 +72,8 @@ export default function RentCar({ car, returnToHomePage }) {
 
       const result = await contract.methods.rental().send({
         from: selectedAddress,
-        value: web3.utils.toWei((24 * car.price).toString(), 'ether')
+        value: web3.utils.toWei('0.1', 'ether')
+        // value: web3.utils.toWei((24 * car.price).toString(), 'ether')
       })
       alert("Rental successful")
       returnToHomePage()
