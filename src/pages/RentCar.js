@@ -70,22 +70,21 @@ export default function RentCar({ car, returnToHomePage, success }) {
       //   "0x8f960C819C8Ae5988c9007Ab74c0f77FcA9A7C96"
       // );
 
-<<<<<<< HEAD
+
       const result = await contract.methods.rental().send({
         from: selectedAddress,
         value: web3.utils.toWei('0.1', 'ether')
         // value: web3.utils.toWei((24 * car.price).toString(), 'ether')
       })
-      alert("Rental successful")
-      returnToHomePage()
-=======
+      
+
       // const result = await contract.methods.rental().send({
       //   from: selectedAddress,
       //   // value: web3.utils.toWei('0.1', 'ether')
       //   value: web3.utils.toWei((24 * car.price).toString(), 'ether')
       // })
       success()
->>>>>>> 54d6d3def3ef0a724645001ebba088d069db110d
+
     }
     catch (error) {
       console.log(error);
