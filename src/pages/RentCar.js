@@ -3,10 +3,14 @@ import Select from "react-select";
 import "./RentCar.css";
 import Web3 from "web3";
 import CarSharing from "../contracts/CarSharing.json";
+import Success from "./Success";
 
-export default function RentCar({ car, returnToHomePage, success }) {
-  const [hour, setHour] = useState("");
+export default function RentCar({ car, returnToHomePage, user }) {
+  const [fhour, setFHour] = useState("");
+  const [thour, setTHour] = useState("");
   const [web3, setWeb3] = useState(null)
+  const [showError, setShowError] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
   const options = [
     { value: 1, label: "1 a.m." },
     { value: 2, label: "2 a.m." },
@@ -71,13 +75,27 @@ export default function RentCar({ car, returnToHomePage, success }) {
        );
 
 
-      const result = await contract.methods.rental().send({
-        from: selectedAddress,
-        value: web3.utils.toWei('0.1', 'ether')
+     // const result = await contract.methods.rental().send({
+      //  from: selectedAddress,
+      //  value: web3.utils.toWei('0.1', 'ether')
         // value: web3.utils.toWei((24 * car.price).toString(), 'ether')
-      })
+      //})
       
-      success()
+      
+
+
+      if (thour - fhour <= 0 || !fhour){
+        setShowError(true)
+        return
+      }
+      // thour - fhour - calc of hours
+
+      // const result = await contract.methods.rental().send({
+      //   from: selectedAddress,
+      //   // value: web3.utils.toWei('0.1', 'ether')
+      // value: web3.utils.toWei(((thour - fhour) * car.price).toString(), 'ether')
+      // })
+      setIsSuccess(true)
 
     }
     catch (error) {
@@ -86,31 +104,41 @@ export default function RentCar({ car, returnToHomePage, success }) {
   };
 
   return (
-    <div className="form-wrap">
-      <h1> Car Rental</h1>
-      <div id="rent-div">
-        <div onClick={returnToHomePage}>
-          <img className="home" src={"./../home.png"}></img>
-        </div>
-        <div>
-          <img src={car.carimage} />
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", width: "20vw", alignItems: "center", height: "50vh", justifyContent: "space-around" }}>
-          <span>Manufacture <b>{car.manufacturer}</b></span>
-          <span>Model <b>{car.model}</b></span>
-          <span>Year of manufacture <b>{car.year}</b></span>
-          <span>Price per hour <b>{car.price}</b></span>
-          <span>Location <b>{car.location}</b></span>
-          <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", fontSize: "larger", width: "12vw" }}>
-            Hour
-            <Select options={options} onChange={(e) => setHour(e.value)}>
-              Select Hour{" "}
-            </Select></div>
-          <button id="rent-now-button" onClick={handleRent}>
-            Rent Now
-          </button>
+    !isSuccess
+      ?
+      <div className="form-wrap">
+        <h1> Car Rental</h1>
+        <div id="rent-div">
+          <div onClick={returnToHomePage}>
+            <img className="home" src={"./../home.png"}></img>
+          </div>
+          <div>
+            <img src={car.carimage} />
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", width: "20vw", alignItems: "center", height: "50vh", justifyContent: "space-around" }}>
+            <span>Manufacture <b>{car.manufacturer}</b></span>
+            <span>Model <b>{car.model}</b></span>
+            <span>Year of manufacture <b>{car.year}</b></span>
+            <span>Price per hour <b>{car.price}</b></span>
+            <span>Location <b>{car.location}</b></span>
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", fontSize: "larger", width: "26vw" }}>
+              Hour <b>from:</b>
+              <Select options={options} onChange={(e) => setFHour(e.value)}>
+                Select Hour{" "}
+              </Select>
+              <b>to:</b>
+              <Select options={options} onChange={(e) => setTHour(e.value)}>
+                Select Hour{" "}
+              </Select>
+            </div>
+            {showError ? <div style={{color:'red'}}> Something is wrong with the hours you have chosen</div> : ''}
+            <button id="rent-now-button" onClick={handleRent}>
+              Rent Now
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+      :
+      <Success returnToHomePage={returnToHomePage} car={car} user={user} hours={thour - fhour} />
   );
 }
