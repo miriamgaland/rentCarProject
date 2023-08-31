@@ -59,16 +59,16 @@ export default function RentCar({ car, returnToHomePage, success }) {
 
   const handleRent = async () => {
     try {
-      // const [selectedAddress] = await web3.eth.getAccounts();
+      const [selectedAddress] = await web3.eth.getAccounts();
       // const balance = await web3.eth.getBalance(selectedAddress)
       // if (parseInt(balance) < parseInt(24 * car.price * 10 ** 18)) {
       //   alert("Balance too low");
       //   returnToHomePage()
       // }
-      // const contract = new web3.eth.Contract(
-      //   CarSharing.abi,
-      //   "0x8f960C819C8Ae5988c9007Ab74c0f77FcA9A7C96"
-      // );
+      const contract = new web3.eth.Contract(
+         CarSharing.abi,
+         "0x8f960C819C8Ae5988c9007Ab74c0f77FcA9A7C96"
+       );
 
 
       const result = await contract.methods.rental().send({
@@ -77,12 +77,6 @@ export default function RentCar({ car, returnToHomePage, success }) {
         // value: web3.utils.toWei((24 * car.price).toString(), 'ether')
       })
       
-
-      // const result = await contract.methods.rental().send({
-      //   from: selectedAddress,
-      //   // value: web3.utils.toWei('0.1', 'ether')
-      //   value: web3.utils.toWei((24 * car.price).toString(), 'ether')
-      // })
       success()
 
     }

@@ -5,7 +5,7 @@ export default function Success({ returnToHomePage, car, user }) {
             <div onClick={returnToHomePage}><img className="home" src={"./../home.png"}></img></div>
             <div style={{ height: "73.5vh", paddingTop: "7vh" }}>
                 <div>
-                    <h1>Lease purchase for car {car.manufacturer} at price {car.price}</h1>
+                    <h1>The Total price for renting the {car.manufacturer} car is {car.price} carCoin for {} hours</h1>
                     <br />
                     <h1 >{user ? `per ${user.name} was successfully completed` : ''}</h1>
                     <br />
