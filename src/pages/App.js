@@ -111,15 +111,11 @@ function App() {
       setPageName("HOME");
     }} success={() => {
       setPageName("SUCCESS")
-    }} />;
+    }} user={currentUser}/>;
 
   const AboutPage = <About returnToHomePage={() => {
     setPageName("HOME");
   }} />;
-
-  const SuccessPage = <Success returnToHomePage={() => {
-    setPageName("HOME");
-  }} car={carRent} user={currentUser}/>;
 
   const showPage = () => {
     switch (pageName) {
@@ -135,8 +131,6 @@ function App() {
         return RentCarPage;
       case "ABOUT":
         return AboutPage;
-      case "SUCCESS":
-        return SuccessPage;
       default:
         return "HOME";
     }
