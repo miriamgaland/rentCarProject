@@ -38,6 +38,7 @@ export default function RentCar({ car, returnToHomePage, user }) {
     { value: 24, label: "12 p.m." },
   ];
 
+
   useEffect(() => {
     const connectMetamask = async () => {
       if (window.ethereum) {
@@ -88,13 +89,19 @@ export default function RentCar({ car, returnToHomePage, user }) {
         setShowError(true)
         return
       }
+      else {
+        console.log((thour - fhour) * car.price);
+      }
       // thour - fhour - calc of hours
 
-      // const result = await contract.methods.rental().send({
-      //   from: selectedAddress,
-      //   // value: web3.utils.toWei('0.1', 'ether')
-      // value: web3.utils.toWei(((thour - fhour) * car.price).toString(), 'ether')
-      // })
+       const result = await contract.methods.rental().send({
+         from: selectedAddress,
+          value: web3.utils.toWei(((thour - fhour) * (car.price/2000)).toString(), 'ether')
+      //  value: web3.utils.toWei((10).toString(), 'wei')
+      //  value: web3.utils.toWei(((thour - fhour) * car.price).toString(), 'wei')
+
+       })
+
       setIsSuccess(true)
 
     }

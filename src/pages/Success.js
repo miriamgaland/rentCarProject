@@ -10,7 +10,7 @@ export default function Success({ returnToHomePage, car, user,hours }) {
                     <h1 style={{fontSize:'x-large'}}>{user ? user.name : ''}</h1>
 
                     <br />
-                    <h1 style={{fontSize:'30px'}}> {car.manufacturer} car rental for {hours} hours at a price of {car.price} per hour </h1>
+                    <h1 style={{fontSize:'30px'}}> {car.manufacturer} car rental for {hours} hours at a price of {car.price*hours} per hour </h1>
                     <br />
                     <h1 style={{fontSize:'30px'}}>Was successfully completed</h1>
                     <br />
